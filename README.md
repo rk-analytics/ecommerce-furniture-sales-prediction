@@ -37,9 +37,18 @@ Predict the `sold` quantity using the following features:
 ## 📈 Key Findings
 - Sales data is highly right-skewed
 - Log transformation improved model stability
-- Linear regression showed underfitting
+- Linear regression showed limited performance on raw sales
+- Decision Tree captured non-linear effects better than linear models
 - Discount amount was the most influential feature
 - External factors likely drive sales beyond pricing variables
+
+---
+
+## 💡 Business Insights
+
+- Higher absolute discounts drive sales volume more than discount percentage
+- Shipping cost has limited direct impact once discounts are considered
+- Predictive performance is constrained by missing demand-side features (ratings, reviews, traffic)
 
 ---
 
