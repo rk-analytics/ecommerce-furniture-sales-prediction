@@ -1,166 +1,80 @@
-🛒 E-commerce Furniture Sales Prediction
-📌 Project Overview
+# E-commerce Furniture Sales Prediction
 
-This project aims to predict the number of furniture items sold on an e-commerce platform using product pricing and promotional attributes. The analysis follows an end-to-end data science workflow, including data cleaning, exploratory data analysis (EDA), feature engineering, regression modeling, evaluation, and business interpretation.
+## 📌 Project Overview
+This project aims to predict the number of furniture items sold based on product attributes such as pricing, discounts, and shipping cost. The analysis focuses on understanding sales patterns, handling skewed target variables, and evaluating regression model performance.
 
-The project emphasizes interpretability and realistic model evaluation rather than chasing high accuracy with complex models.
+---
 
-🎯 Objective
+## 🎯 Objective
+Predict the `sold` quantity using the following features:
+- `price`
+- `originalPrice`
+- `discount_amount`
+- `discount_pct`
+- `shipping_cost`
 
-Predict the number of units sold (sold) based on numerical product attributes such as:
+---
 
-Price
+## 📊 Dataset
+- Source: E-commerce Furniture Dataset (CSV)
+- Rows: ~1,792 products(duplicates removed from 2000 products)
+- Target variable: `sold` (number of units sold)
+- No missing or negative values in target
 
-Original price
+---
 
-Discount amount
+## 🛠️ Methodology
+1. Data cleaning and validation
+2. Exploratory Data Analysis (EDA)
+3. Feature selection and engineering
+4. Baseline Linear Regression
+5. Log transformation of skewed target
+6. Model evaluation using MAE and R²
+7. Decision Tree model for feature importance
 
-Discount percentage
+---
 
-Shipping cost
+## 📈 Key Findings
+- Sales data is highly right-skewed
+- Log transformation improved model stability
+- Linear regression showed underfitting
+- Discount amount was the most influential feature
+- External factors likely drive sales beyond pricing variables
 
-📂 Dataset Description
+---
 
-Source: CSV file (cleaned initially using Excel for transparency)
+## 📉 Model Performance (Log-Transformed Target)
+- **MAE:** ~0.95
+- **R²:** ~0.16
 
-Records: ~1,800 furniture products
+> Results indicate limited predictive power due to missing behavioral and demand-side features.
 
-Target Variable:
+---
 
-sold (number of units sold)
+## 🧰 Tools & Libraries
+- Python
+- Pandas, NumPy
+- Matplotlib
+- Scikit-learn
+- Google Colab
+- Excel
 
-Features Used:
+---
 
-price
+## 📁 Files in Repository
+- `ecommerce_project.ipynb` — full analysis and modeling
+- `ecommerce_furniture_dataset.csv` — dataset
+- `README.md` — project documentation
 
-originalPrice
+---
 
-discount_amount
+## 🚀 Future Improvements
+- Add product category encoding
+- Include time-based and demand features
+- Try ensemble models (Random Forest, XGBoost)
 
-discount_pct
+---
 
-shipping_cost
-
-Categorical variables were excluded to keep the project focused on numerical regression fundamentals.
-
-🧹 Data Cleaning
-
-Initial cleaning performed in Excel for clarity and auditability
-
-Extracted numeric shipping cost from text-based fields
-
-Created derived features:
-
-discount_amount = originalPrice - price
-
-discount_pct
-
-Verified:
-
-No missing values in selected features
-
-Correct data types using df.info()
-
-No negative values in target variable
-
-📊 Exploratory Data Analysis (EDA)
-
-Key findings from EDA:
-
-Sales (sold) distribution is highly right-skewed
-
-Majority of products sell very few units
-
-A small number of products sell extremely high volumes
-
-To address skewness, a log(1 + sold) transformation was applied and visually validated.
-
-🤖 Modeling Approach
-1️⃣ Linear Regression (Baseline)
-
-Trained on original target variable
-
-Results:
-
-High error
-
-Negative R² score
-
-Interpretation:
-
-Linear assumptions do not hold due to skewness and non-linearity
-
-2️⃣ Log-Transformed Linear Regression
-
-Target transformed using log1p(sold)
-
-Improvements:
-
-More stable predictions
-
-Reduced impact of extreme outliers
-
-Still limited predictive power due to missing contextual features
-
-3️⃣ Decision Tree Regressor
-
-Used to capture non-linear relationships
-
-Feature importance analysis performed
-
-Result:
-
-Model overfits due to limited feature diversity
-
-Poor generalization on unseen data
-
-📈 Model Evaluation Metrics
-
-MAE (Mean Absolute Error) – used to measure average prediction error
-
-R² Score – used to assess explained variance
-
-Results were interpreted relative to the sales distribution, not in isolation.
-
-🔍 Key Insights
-
-Discount amount is the most influential driver of sales
-
-Base price and shipping cost have limited impact once discounts are known
-
-Promotional depth matters more than nominal pricing
-
-Pricing alone cannot explain consumer purchasing behavior
-
-⚠️ Limitations
-
-No user behavior data (views, ratings, reviews)
-
-No temporal or seasonal information
-
-Categorical features not encoded
-
-Dataset likely influenced by platform-specific promotion strategies
-
-These limitations explain the modest predictive performance.
-
-✅ Conclusion
-
-This project demonstrates a complete regression workflow, from raw data to business insights.
-Rather than optimizing for performance, the focus is on sound reasoning, proper validation, and interpretability.
-
-The results highlight that pricing incentives, especially discount magnitude, are primary drivers of sales in this dataset.
-
-🛠️ Tools & Libraries
-
-Python
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Scikit-learn
-
-Google Colab
+## 👤 Author
+Rahul  
+GitHub: [rk-analytics](https://github.com/rk-analytics)
