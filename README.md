@@ -16,10 +16,10 @@ Predict the `sold` quantity using the following features:
 ---
 
 ## 📊 Dataset
-- Source: E-commerce Furniture Dataset (CSV)
-- Rows: ~1,792 products(duplicates removed from 2000 products)
-- Target variable: `sold` (number of units sold)
-- No missing or negative values in target
+- **Source:** E-commerce Furniture Dataset (CSV)
+- **Rows:** 1,792 products (after removing duplicates from an initial 2,000 records)
+- **Target Variable:** `sold` — number of units sold per product
+- **Data Quality:** No missing values detected in the target variable
 
 ---
 
